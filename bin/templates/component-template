@@ -1,0 +1,7 @@
+import * as S from "./styles";
+
+const {{component_name}} = () => {
+  return <S.JustAText>Hi, hacker!</S.JustAText>;
+};
+
+export { {{component_name}} };

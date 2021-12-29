@@ -1,0 +1,12 @@
+import styled from "styled-components";
+
+export const JustAText = styled.p`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  color: #fff; ;
+  font-size: 3rem;
+  
+  background-color: teal;
+`;

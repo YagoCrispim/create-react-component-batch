@@ -1,0 +1,24 @@
+{
+  "name": "create-react-component-batch",
+  "version": "1.0.0",
+  "description": "This is a CLI tool to create one or many complete React components with one single command.",
+  "main": "src/index.js",
+  "scripts": {
+    "crc": "create-react-component"
+  },
+  "repository": {
+    "type": "git",
+    "url": "''"
+  },
+  "keywords": [
+    "React",
+    "Component",
+    "ReactJS",
+    "Component"
+  ],
+  "author": "Yago Crispim",
+  "license": "MIT",
+  "bin": {
+    "crc": "./bin/index.js"
+  }
+}
