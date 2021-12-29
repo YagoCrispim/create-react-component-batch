@@ -1,8 +1,8 @@
+import { render, screen } from '@testing-library/react';
 import { {{component_name}} } from "./{{component_name}}";
 
-describe("{{component_name}}", () => {
-  it("should render the text Hi, hacker!", () => {
-    const wrapper = shallow(<{{component_name}} />);
-    expect(wrapper.text()).toEqual("Hi, hacker!");
-  });
+test('should render the text Hi, hacker!', () => {
+  render(<{{component_name}} />);
+  const element = screen.getByText(/Hi, hacker!/i);
+  expect(element).toBeInTheDocument();
 });
