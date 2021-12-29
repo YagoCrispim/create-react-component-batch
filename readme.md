@@ -72,9 +72,7 @@
 
 - **To use the alias the flag "-a" must be used.** 
 
-  - Example of a command using alias:
-
-    - Creation of a new atom:
-      ```bash
-        npx crc InputText -a at # Creates the component called InputText inside the src/Components/atoms folder
-      ```
+- Example of a command using alias. Creation of a new atom:
+  ```bash
+    npx crc InputText -a at # Creates the component called InputText inside the src/Components/atoms folder
+  ```
