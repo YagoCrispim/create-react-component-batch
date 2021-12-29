@@ -81,6 +81,8 @@
 
 - All components created with crc use the following dependencies:
 
+  - **typescript**
+
   - **@testing-library/react**: The library used to create components.
 
   - **styled-components**: The library used to create styles.
