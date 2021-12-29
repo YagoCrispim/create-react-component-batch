@@ -8,7 +8,7 @@
   |- Header/
       |- Header.tsx
       |- styles.ts        (using styled-components)
-      |- Header.test.tsx  (using jest)
+      |- Header.test.tsx  (using @testing-library/react)
 ```
 
 ## Configuration
@@ -70,9 +70,17 @@
   }
   ```
 
-- **To use the alias the flag "-a" must be used.** 
+- **To use the alias the flag "-a" must be used.**
 
 - Example of a command using alias. Creation of a new atom:
   ```bash
     npx crc InputText -a at # Creates the component called InputText inside the src/Components/atoms folder
   ```
+
+## Components dependencies
+
+- All components created with crc use the following dependencies:
+
+  - **@testing-library/react**: The library used to create components.
+
+  - **styled-components**: The library used to create styles.
