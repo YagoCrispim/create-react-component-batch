@@ -44,7 +44,7 @@
   ```bash
     npx crc Header # This command creates the component called Header inside the component_folder defined in crc_config.json
 
-    npx crc Header Body Footer # This command creates components in batch inside the component_folder.
+    npx crc Header Body Footer Sidebar Modal # This command creates components in batch inside the component_folder.
   ```
 
 ## Alias(Optional)

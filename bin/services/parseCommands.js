@@ -1,11 +1,15 @@
+const { 
+  alias_not_informed,
+  name_not_defined
+} = require('../error_messages.json').file.parser;
+
 function parseCommands(command, configInfos) {
   const aliasPosition = command.indexOf("-a");
   const aliasPath = __getAliasPath(aliasPosition, command, configInfos);
   const componentsNames = __getComponentsNames(aliasPosition, command);
 
-  if (!aliasPath) throw "The alias path was not found.";
-  if (!componentsNames.length)
-    throw "The component(s) name(s) was not defined.";
+  if (!aliasPath) throw alias_not_informed;
+  if (!componentsNames.length) throw name_not_defined;
 
   return {
     componentsNames: componentsNames,
@@ -21,7 +25,15 @@ function __getAliasPath(aliasPosition, command, configInfos) {
 }
 
 function __getComponentsNames(aliasPosition, command) {
-  return aliasPosition > 0 ? command.slice(2, aliasPosition) : command.slice(2);
+  const namesArr = aliasPosition > 0
+    ? command.slice(2, aliasPosition)
+    : command.slice(2);
+    
+  return namesArr.map((name) => capitalizeFirstLetter(name));
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 module.exports = {
