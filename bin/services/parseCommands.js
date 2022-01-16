@@ -29,10 +29,10 @@ function __getComponentsNames(aliasPosition, command) {
     ? command.slice(2, aliasPosition)
     : command.slice(2);
     
-  return namesArr.map((name) => capitalizeFirstLetter(name));
+  return namesArr.map((name) => __capitalizeFirstLetter(name));
 }
 
-function capitalizeFirstLetter(string) {
+function __capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
