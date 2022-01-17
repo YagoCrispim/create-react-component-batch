@@ -1,7 +1,11 @@
 import * as S from "./styles";
 
 const {{component_name}} = () => {
-  return <S.JustAText>Hi, hacker!</S.JustAText>;
+  return (
+    <S.Wrapper>
+      <S.JustAText>Hi, hacker!</S.JustAText>
+    </S.Wrapper>
+  );
 };
 
 export { {{component_name}} };

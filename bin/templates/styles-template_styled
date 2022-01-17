@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+export const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+`;
+
 export const JustAText = styled.p`
   align-items: center;
   display: flex;
