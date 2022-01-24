@@ -6,6 +6,7 @@ const pathToTemplatesFolder = path.join(baseDir, "templates");
 
 // prettier-ignore
 function createComponent({
+  tests,
   componentsNames,
   projectFolderAbsolutePath,
   componentFolderRelativePath,
@@ -14,7 +15,7 @@ function createComponent({
   
   createFolder(componentsNames, projectFolderAbsolutePath, componentFolderRelativePath);
   __throwErrorIfFileExistsInsideFolder(path, componentsNames)
-  copyFilesFromTemplateToComponentFolder(componentsNames, projectFolderAbsolutePath, componentFolderRelativePath);
+  copyFilesFromTemplateToComponentFolder(tests, componentsNames, projectFolderAbsolutePath, componentFolderRelativePath);
   parseFilecontent(componentsNames, projectFolderAbsolutePath, componentFolderRelativePath);
   changeFileName(componentsNames, projectFolderAbsolutePath, componentFolderRelativePath);
 }
@@ -45,6 +46,7 @@ function createFolder(
 }
 
 function copyFilesFromTemplateToComponentFolder(
+  tests,
   componentsNames,
   projectFolderAbsolutePath,
   componentFolderRelativePath
@@ -53,6 +55,8 @@ function copyFilesFromTemplateToComponentFolder(
   const filesToCopy = fs.readdirSync(templateFolder);
 
   filesToCopy.forEach((file) => {
+    if (file.includes('test') && !tests) return
+
     const filePath = path.join(pathToTemplatesFolder, file);
     const newFilePath = path.join(
       projectFolderAbsolutePath, componentFolderRelativePath, componentsNames, file);
@@ -86,7 +90,16 @@ function changeFileName(
   projectFolderAbsolutePath,
   componentFolderRelativePath
 ) {
-  const files = fs.readdirSync(pathToTemplatesFolder);
+  const files = fs.readdirSync(
+    `${projectFolderAbsolutePath}/${componentFolderRelativePath}/${componentsNames}/`
+  );
+
+    path.join(
+      projectFolderAbsolutePath,
+      componentFolderRelativePath,
+      componentsNames
+    );
+
 
   files.forEach((file) => {
     const newFileName = file
@@ -95,10 +108,18 @@ function changeFileName(
       .replace(/component-template_test$/g, `${componentsNames}.test.tsx`);
 
     const newFilePath = path.join(
-      projectFolderAbsolutePath, componentFolderRelativePath, componentsNames, newFileName);
+      projectFolderAbsolutePath,
+      componentFolderRelativePath,
+      componentsNames,
+      newFileName
+    );
 
     const pathFileTemplateInCompFolder = path.join(
-      projectFolderAbsolutePath, componentFolderRelativePath, componentsNames, file);
+      projectFolderAbsolutePath,
+      componentFolderRelativePath,
+      componentsNames,
+      file
+    );
 
     fs.renameSync(pathFileTemplateInCompFolder, newFilePath);
   });

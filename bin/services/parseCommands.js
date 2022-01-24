@@ -8,10 +8,14 @@ function parseCommands(command, configInfos) {
   const aliasPath = __getAliasPath(aliasPosition, command, configInfos);
   const componentsNames = __getComponentsNames(aliasPosition, command);
 
+  const generateTests =
+    typeof configInfos.tests !== "undefined" ? configInfos.tests : true;
+
   if (!aliasPath) throw alias_not_informed;
   if (!componentsNames.length) throw name_not_defined;
 
   return {
+    tests: generateTests,
     componentsNames: componentsNames,
     componentFolderRelativePath: aliasPath,
   };

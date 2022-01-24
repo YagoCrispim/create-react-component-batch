@@ -17,6 +17,7 @@ try {
     if (component.startsWith("-")) return;
 
     const props = {
+      tests: componentInfos.tests,
       componentsNames: component,
       projectFolderAbsolutePath: basePath,
       componentFolderRelativePath: componentInfos.componentFolderRelativePath,
