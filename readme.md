@@ -77,6 +77,30 @@
     npx crc InputText -a at # Creates the component called InputText inside the src/Components/atoms folder
   ```
 
+## Tests
+
+- The default option is true
+
+- If false test file will not be generated
+
+- Example
+
+  ```json
+
+  -- crc_config.json --
+
+  {
+    "component_folder": "src/Components",
+    "tests": false,
+    "alias": {
+      "at": "src/Components/atoms",
+      "ml": "src/Components/molecules",
+      "or": "src/Components/organisms",
+      "pages": "src/Pages"
+    }
+  }
+  ```
+
 ## Components dependencies
 
 - All components created with crc use the following dependencies:
