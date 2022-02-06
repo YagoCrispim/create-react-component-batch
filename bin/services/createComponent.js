@@ -1,11 +1,16 @@
-const fs = require("fs");
-const path = require("path");
+import fs from 'fs'
+// TODO: Vai dar erro aqui
+import path, {dirname} from 'path'
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 
 const baseDir = __dirname.split("/").slice(0, -1).join("/");
 const pathToTemplatesFolder = path.join(baseDir, "templates");
 
 // prettier-ignore
-function createComponent({
+export function createComponent({
   tests,
   componentsNames,
   projectFolderAbsolutePath,
@@ -30,7 +35,7 @@ function __throwErrorIfFileExistsInsideFolder(path, fileName) {
   });
 }
 
-function createFolder(
+export function createFolder(
   componentsNames,
   projectFolderAbsolutePath,
   componentFolderRelativePath
@@ -45,7 +50,7 @@ function createFolder(
   }
 }
 
-function copyFilesFromTemplateToComponentFolder(
+export function copyFilesFromTemplateToComponentFolder(
   tests,
   componentsNames,
   projectFolderAbsolutePath,
@@ -65,7 +70,7 @@ function copyFilesFromTemplateToComponentFolder(
   });
 }
 
-function parseFilecontent(
+export function parseFilecontent(
   componentsNames,
   projectFolderAbsolutePath,
   componentFolderRelativePath
@@ -85,7 +90,7 @@ function parseFilecontent(
   });
 }
 
-function changeFileName(
+export function changeFileName(
   componentsNames,
   projectFolderAbsolutePath,
   componentFolderRelativePath
@@ -125,10 +130,3 @@ function changeFileName(
   });
 }
 
-module.exports = {
-  createComponent,
-  createFolder,
-  copyFilesFromTemplateToComponentFolder,
-  parseFilecontent,
-  changeFileName,
-};

@@ -1,16 +1,22 @@
 #!/usr/bin/env node
-const fs = require("fs");
+// =-=-=-=-= Node modules =-=-=-=-=
+import fs from 'fs';
 
-const { parseCommands } = require("./services/parseCommands");
-const { createComponent } = require("./services/createComponent");
-const { config_file_not_found } = require("./error_messages.json").file.index;
+// =-=-=-=-= App modules =-=-=-=-=
+import { parseCommands } from './services/parseCommands.js'
+import { createComponent } from './services/createComponent.js'
+import { errors } from './error_messages.js'
+
+// =-=-=-=-= App config =-=-=-=-=
 const basePath = process.argv[1].split("/").slice(0, -3).join("/");
 
 try {
   if (!fs.readdirSync(basePath).includes("crc_config.json"))
-    throw config_file_not_found;
+    throw errors.file.index.config_file_not_found;
 
-  const config = require(`${basePath}/crc_config.json`);
+  const config = JSON.parse(
+    fs.readFileSync(`${basePath}/crc_config.json`, "utf8")
+  );
   const componentInfos = parseCommands(process.argv, config);
 
   componentInfos.componentsNames.forEach((component) => {

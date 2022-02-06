@@ -20,5 +20,6 @@
   "license": "MIT",
   "bin": {
     "crc": "./bin/index.js"
-  }
+  },
+  "type": "module"
 }
