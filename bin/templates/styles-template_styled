@@ -6,13 +6,19 @@ export const Wrapper = styled.div`
   justify-content: center;
 `;
 
+export const Content = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const JustAText = styled.p`
   align-items: center;
   display: flex;
   justify-content: center;
 
-  color: #fff; ;
+  color: #fff;
   font-size: 3rem;
-  
+
   background-color: teal;
 `;

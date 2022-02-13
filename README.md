@@ -1,6 +1,6 @@
 # Create React Component
 
-### This is a CLI tool to create one or many complete React components with one single command.
+## **This is a CLI tool to create one or many complete React components with one single command.**
 
 ## Component folder content
 
